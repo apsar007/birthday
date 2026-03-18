@@ -1,0 +1,485 @@
+:root {
+    --rose: #e8436a;
+    --blush: #ffd6e0;
+    --deep: #2b0a1a;
+    --gold: #f7c948;
+    --cream: #fff5f7;
+    --petal: #ffaec0;
+  }
+
+  * { 
+    margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--deep);
+    color: white;
+    overflow: hidden;
+  }
+
+  /* ─── SCREENS ─── */
+  .screen {
+    
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    z-index: 1;
+    padding-bottom: 5.5rem;
+  }
+  .screen.active {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 2;
+  }
+
+  /* ─── PARTICLES ─── */
+  #particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .heart-particle {
+    position: absolute;
+    font-size: 1.2rem;
+    animation: floatUp linear infinite;
+    opacity: 0;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(110vh) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* ─── SCREEN 1 ─── */
+  #s1 { background: radial-gradient(ellipse at 50% 60%, #2d0d3a 0%, #0d050f 100%); text-align: center; padding: 2rem; }
+  #s1 .tagline {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--petal);
+    margin-bottom: 0.5rem;
+    animation: fadeSlideDown 1s ease 0.3s both;
+  }
+  #s1 h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    line-height: 1.15;
+    color: white;
+    text-shadow: 0 0 40px rgba(232,67,106,0.6);
+    animation: fadeSlideDown 1s ease 0.6s both;
+    margin-bottom: 2.5rem;
+  }
+  #s1 h1 span { color: var(--rose); }
+
+  .name-wrap {
+    animation: fadeSlideUp 1s ease 1s both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .name-input {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(232,67,106,0.5);
+    border-radius: 50px;
+    padding: 0.9rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    width: min(320px, 90vw);
+    font-family: 'Playfair Display', serif;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .name-input::placeholder { color: rgba(255,174,192,0.5); }
+  .name-input:focus { border-color: var(--rose); box-shadow: 0 0 20px rgba(232,67,106,0.3); }
+
+  /* ─── BUTTONS ─── */
+  .btn {
+    padding: 0.9rem 2.8rem;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--rose), #c0274f);
+    color: white;
+    box-shadow: 0 6px 30px rgba(232,67,106,0.45);
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.04em;
+  }
+  .btn:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 40px rgba(232,67,106,0.6); }
+  .btn:active { transform: scale(0.97); }
+
+  /* ─── SCREEN 2 ─── */
+  #s2 { background: radial-gradient(ellipse at 50% 60%, #2d0d3a 0%, #0d050f 100%); padding: 2rem; text-align: center; }
+  #s2 h2 { font-family: 'Dancing Script', cursive; font-size: clamp(1.8rem, 5vw, 3rem); color: var(--petal); margin-bottom: 2rem; animation: fadeSlideDown 0.8s ease 0.2s both; }
+
+  /* Heart photo grid */
+  .heart-grid {
+    position: relative;
+    width: min(380px, 90vw);
+    height: min(380px, 90vw);
+    margin: 0 auto 2rem;
+    animation: fadeIn 1s ease 0.4s both;
+  }
+  /* Heart shape clip */
+  .heart-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--rose);
+    clip-path: polygon(50% 95%, 5% 40%, 5% 20%, 25% 5%, 50% 15%, 75% 5%, 95% 20%, 95% 40%);
+    opacity: 0.08;
+  }
+
+  .photo-pos {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 3px solid rgba(255,255,255,0.25);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+  }
+  .photo-pos:hover { transform: scale(1.06) rotate(2deg); z-index: 10; }
+  .photo-pos img, .photo-pos .photo-placeholder {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-placeholder {
+    background: linear-gradient(135deg, #5c1a30, #3d0a20);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    color: rgba(255,174,192,0.7);
+    text-align: center;
+    padding: 4px;
+  }
+  .photo-placeholder span { font-size: 2rem; }
+
+  /* 4 photos in heart positions */
+  .p1 { width: 42%; height: 42%; top: 8%; left: 5%; }
+  .p2 { width: 42%; height: 42%; top: 8%; right: 5%; }
+  .p3 { width: 42%; height: 42%; bottom: 12%; left: 15%; }
+  .p4 { width: 42%; height: 42%; bottom: 12%; right: 15%; }
+
+  /* ─── SCREEN 3 ─── */
+  #s3 { background: radial-gradient(ellipse at 50% 60%, #2d0d3a 0%, #0d050f 100%); padding: 2rem; text-align: center; }
+  #s3 h2 { font-family: 'Dancing Script', cursive; font-size: clamp(1.8rem, 5vw, 3rem); color: #d8b4fe; margin-bottom: 1.5rem; animation: fadeSlideDown 0.8s ease 0.2s both; }
+
+  .song-bar {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(216,180,254,0.3);
+    border-radius: 50px;
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #d8b4fe;
+    animation: fadeIn 1s ease 0.5s both;
+  }
+  .song-note { font-size: 1.4rem; animation: bounce 1s ease infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+
+  .photo-strip {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease 0.4s both;
+  }
+  .strip-photo {
+    width: min(160px, 40vw);
+    aspect-ratio: 3/4;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 3px solid rgba(216,180,254,0.4);
+    box-shadow: 0 8px 30px rgba(100,0,150,0.5);
+    transition: transform 0.3s;
+  }
+  .strip-photo:hover { transform: rotate(-3deg) scale(1.06); }
+  .strip-photo img, .strip-photo .photo-placeholder { width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* ─── SCREEN 4 – LOVE LETTER ─── */
+  #s4 {
+    background: radial-gradient(ellipse at 50% 50%, #3b0a0a 0%, #1a0505 100%);
+    padding: 2rem;
+    overflow-y: auto;
+    justify-content: flex-start;
+    padding-top: 5vh;
+  }
+  .letter-wrap {
+    max-width: min(680px, 92vw);
+    margin: 0 auto;
+    animation: fadeIn 1s ease 0.3s both;
+  }
+  .letter-paper {
+    background: linear-gradient(160deg, #fff9f0, #ffeaea);
+    border-radius: 4px 20px 20px 20px;
+    padding: clamp(1.5rem, 5vw, 3rem) clamp(1.5rem, 5vw, 3.5rem);
+    color: #2b0a0a;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5), 8px 8px 0 rgba(232,67,106,0.2);
+    position: relative;
+    text-align: left;
+  }
+  .letter-paper::before {
+    content: '❤';
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    font-size: 1.8rem;
+    opacity: 0.15;
+  }
+  .letter-stamp {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    color: var(--rose);
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+  .letter-date { font-size: 0.85rem; color: #a05060; margin-bottom: 1.8rem; }
+  .letter-paper p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+    line-height: 1.85;
+    color: #3b0a1a;
+    margin-bottom: 1.2rem;
+  }
+  .letter-paper .sign {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    color: var(--rose);
+    margin-top: 1.5rem;
+    display: block;
+  }
+  .letter-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    color: var(--petal);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: fadeSlideDown 0.8s ease 0.2s both;
+  }
+  .s4-btn { margin: 2rem auto 2rem; display: block; }
+
+  /* ─── SCREEN 5 – PROPOSAL ─── */
+  #s5 { background: radial-gradient(ellipse at 50% 40%, #1a0a30 0%, #050010 100%); text-align: center; padding: 2rem; }
+
+  .ring-emoji {
+    font-size: clamp(4rem, 12vw, 8rem);
+    margin-bottom: 1rem;
+    animation: pulse 1.5s ease infinite, fadeIn 1s ease 0.5s both;
+    display: block;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
+
+  #s5 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: white;
+    text-shadow: 0 0 50px rgba(247,201,72,0.7);
+    margin-bottom: 0.5rem;
+    animation: fadeSlideDown 1s ease 0.6s both;
+  }
+  #s5 .sub {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.2rem, 3.5vw, 2rem);
+    color: var(--gold);
+    margin-bottom: 3rem;
+    animation: fadeIn 1s ease 1s both;
+  }
+
+  .answer-btns {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeSlideUp 1s ease 1.2s both;
+  }
+  .btn-yes {
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    cursor: pointer;
+    background: linear-gradient(135deg, #f7c948, #e8a000);
+    color: #2b0a1a;
+    font-weight: 700;
+    box-shadow: 0 6px 30px rgba(247,201,72,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-yes:hover { transform: scale(1.08); box-shadow: 0 10px 50px rgba(247,201,72,0.8); }
+
+  .btn-no {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.4);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  /* ─── YES CELEBRATION ─── */
+  .yes-msg {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease both;
+  }
+  .yes-msg h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(247,201,72,0.8);
+    margin-bottom: 1rem;
+  }
+  .yes-msg p { font-family: 'Dancing Script', cursive; font-size: clamp(1.2rem, 3.5vw, 2rem); color: var(--petal); }
+
+  /* ─── SHARED ANIMATIONS ─── */
+  @keyframes fadeSlideDown {
+    from { opacity:0; transform:translateY(-30px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeSlideUp {
+    from { opacity:0; transform:translateY(30px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity:0; }
+    to   { opacity:1; }
+  }
+
+  /* ─── PROGRESS DOTS ─── */
+  .progress {
+    position: fixed;
+    bottom: 5.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 200;
+  }
+  .dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transition: background 0.3s, transform 0.3s;
+  }
+  .dot.active { background: var(--rose); transform: scale(1.4); }
+
+  /* scrollbar for letter */
+  #s4::-webkit-scrollbar { width: 4px; }
+  #s4::-webkit-scrollbar-thumb { background: rgba(232,67,106,0.4); border-radius: 4px; }
+
+  /* ─── BOTTOM NAV BAR ─── */
+  .nav-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 4.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    background: rgba(20, 3, 12, 0.88);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(232,67,106,0.18);
+    z-index: 300;
+  }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.65rem 1.5rem;
+    border-radius: 50px;
+    border: 2px solid rgba(232,67,106,0.45);
+    background: rgba(232,67,106,0.12);
+    color: var(--petal);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    letter-spacing: 0.02em;
+  }
+  .nav-btn:hover {
+    background: var(--rose);
+    border-color: var(--rose);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 22px rgba(232,67,106,0.55);
+  }
+  .nav-btn:active { transform: scale(0.97); }
+  .nav-btn.hidden { opacity: 0; pointer-events: none; }
+  .nav-btn .arrow { font-size: 1.15rem; }
+  .nav-page-label {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1rem;
+    color: rgba(255,174,192,0.55);
+    text-align: center;
+  }
+
+  /* ─── OLD NAV ARROWS (kept for compat) ─── */
+  /* .nav-arrows {
+    position: fixed;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 200;
+    align-items: center;
+  }
+  .nav-arrow {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.25);
+    background: rgba(30,5,15,0.7);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s, opacity 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .nav-arrow:hover { background: var(--rose); border-color: var(--rose); transform: scale(1.12); }
+  .nav-arrow:active { transform: scale(0.95); }
+  .nav-arrow.hidden { opacity: 0; pointer-events: none; }
+  .nav-page-label {
+    font-family: 'Dancing Script', cursive;
+    font-size: 0.9rem;
+    color: rgba(255,174,192,0.6);
+    min-width: 60px;
+    text-align: center;
+  } */
+
+  /* ─── AUDIO ─── */
+  #bgmusic { display: none; }
+
+  /* ─── GREETING NAME ─── */
+  #greeting-name { color: var(--rose); }
+
+  .sticker {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: floatSpin 6s ease-in-out infinite;
+  }
+  @keyframes floatSpin {
+    0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-12px) rotate(15deg)}
+  }

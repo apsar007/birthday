@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ammu ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./dd.css">
+</head>
+<body>
+
+<!-- Floating hearts background -->
+<div id="particles"></div>
+
+<!-- Progress dots -->
+<!-- <div class="progress" id="progress" style="bottom:5.5rem;">
+  <div class="dot active"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div> -->
+
+<!-- Bottom Navigation Bar -->
+<!-- <div class="nav-bar">
+  <button class="nav-btn hidden" id="prevBtn" onclick="navigate(-1)">
+    <span class="arrow">←</span> Back
+  </button>
+  <span class="nav-page-label" id="pageLabel">1 / 5</span>
+  <button class="nav-btn" id="nextBtn" onclick="navigate(1)">
+    Next <span class="arrow">→</span>
+  </button>
+</div> -->
+
+<!-- ══════════════════════════════════════
+     SCREEN 1 – Welcome
+══════════════════════════════════════ -->
+<section class="screen active" id="s1">
+  <div class="tagline">🌹 A little something special for you...</div>
+  <h1>Welcome to your<br>Birthday Surprise,<br><span id="greeting-name"></span> ❤️</h1>
+  <div class="name-wrap">
+    <input type="text" class="name-input" id="nameInput" placeholder="Type your name here..." maxlength="20">
+    <button class="btn" onclick="goToScreen(2)">Open Your Surprise 🎁</button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SCREEN 2 – Heart Photo Grid
+══════════════════════════════════════ -->
+<section class="screen" id="s2">
+  <h2>💖 Us, in every moment...</h2>
+  <div class="heart-grid">
+    <!-- Replace src with your photo URLs -->
+    <div class="photo-pos p1">
+      <div class="photo-placeholder">
+        
+        <small><img src="/deva/Ph2.jpeg" alt=""><br></small>
+      </div>
+    </div>
+    <div class="photo-pos p2">
+      <div class="photo-placeholder">
+        
+        <small><img src="/deva/Ph1.jpeg" alt=""><br></small>
+      </div>
+    </div>
+    <div class="photo-pos p3">
+      <div class="photo-placeholder">
+        
+        <small><img src="/deva/Ph3.jpeg" alt=""><br></small>
+      </div>
+    </div>
+    <div class="photo-pos p4">
+      <div class="photo-placeholder">
+        <span></span>
+        <small><img src="/deva/Ph6.jpeg" alt=""><br></small>
+      </div>
+    </div>
+    <!-- decorative stickers -->
+    <span class="sticker" style="top:-20px;left:-15px">✨</span>
+    <span class="sticker" style="bottom:-20px;right:-15px;animation-delay:2s">🌸</span>
+  </div>
+  <button class="btn" onclick="goToScreen(3)">Next ✨</button>
+</section>
+
+<!-- ══════════════════════════════════════
+     SCREEN 3 – Photos + Music
+══════════════════════════════════════ -->
+<section class="screen" id="s3">
+  <h2>🎵 Our story, our song...</h2>
+  <div class="song-bar">
+    <span class="song-note">♫</span>
+    <span id="song-title">♪ Playing: Our Favourite Song ♪</span>
+    <span class="song-note" style="animation-delay:0.3s">♫</span>
+  </div>
+  <div class="photo-strip">
+    <div class="strip-photo">
+      <div class="photo-placeholder">
+        
+        <small><img src="/deva/Ph6.jpeg" alt=""></small>
+      </div>
+    </div>
+    <div class="strip-photo">
+      <div class="photo-placeholder">
+        
+        <small><img src="/deva/ph7.jpeg" alt=""></small>
+      </div>
+    </div>
+    <div class="strip-photo">
+      <div class="photo-placeholder">
+        
+        <small><img src="/deva/Ph5.jpeg" alt=""></small>
+      </div>
+    </div>
+  </div>
+  <button class="btn" onclick="goToScreen(4)">Next 💌</button>
+
+  <!-- 🎵 Replace this with your actual audio file URL -->
+  <audio id="bgmusic" controls autoplay loop>
+    <source src="/deva/au/our song.mpeg"  type="audio/mpeg">
+    
+    <!-- Fallback: you can also use a YouTube embed or any hosted audio -->
+  </audio>
+</section>
+
+<!-- ══════════════════════════════════════
+     SCREEN 4 – Love Letter
+══════════════════════════════════════ -->
+<section class="screen" id="s4">
+  <div class="letter-wrap">
+    <div class="letter-title">💌 A Letter From My Heart</div>
+    <div class="letter-paper">
+      <span class="letter-stamp">My Dearest <span id="letter-name">Ammu</span>,</span>
+      <span class="letter-date">On this most beautiful birthday of yours…</span>
+
+      <p>
+        There are moments in life that change you forever — and the day you walked into mine was one of those moments. From the very first smile, the very first laugh we shared, I knew something extraordinary had found me.
+      </p>
+      <p>
+        Every morning I wake up and the first thought that fills my heart is you. Your laugh — the kind that starts slow and then takes over the whole room — is my favourite sound in the world. Your kindness, the way you care for everyone around you so effortlessly, makes me want to be a better person every single day.
+      </p>
+      <p>
+        I love the way your eyes light up when you talk about the things you love. I love how you hold my hand without thinking, as if it's the most natural thing in the universe — and for me, it is. I love the little arguments we have and how we always find our way back to each other, laughing. I love that with you, home isn't a place — it's a feeling.
+      </p>
+      <p>
+        You have given me a love I didn't know I was capable of feeling. You are my calm in chaos, my sunshine on the darkest days, my greatest adventure. Every memory I have made with you is a treasure I will carry in my soul forever.
+      </p>
+      <p>
+        Today, on your birthday, I don't just want to celebrate the day you were born — I want to celebrate the miracle that you are. The world is immeasurably better because you are in it. <em>My</em> world is infinitely more beautiful because you are in mine.
+      </p>
+      <p>
+        Happy Birthday, my love. Here's to forever with you. 🌹
+      </p>
+      <span class="sign">Forever yours, with all my heart ❤️</span>
+    </div>
+    <button class="btn s4-btn" onclick="goToScreen(5)">One Last Thing... 💍</button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SCREEN 5 – Proposal
+══════════════════════════════════════ -->
+<section class="screen" id="s5">
+  <div id="proposal-main">
+    <span class="ring-emoji">💍</span>
+    <h2>Will You Marry Me?</h2>
+    <p class="sub" id="prop-name">My Ammu...</p>
+    <div class="answer-btns">
+      <button class="btn-yes" onclick="sayYes()">YES! 💕</button>
+      <button class="btn-no" id="noBtn" id="noBtn">Maybe later...</button>
+    </div>
+  </div>
+  <div class="yes-msg" id="yesMsg">
+    <span style="font-size:5rem;animation:pulse 1s ease infinite;display:block">🥂</span>
+    <h3>She Said YES! 🎉</h3>
+    <p>You just made me the happiest person alive.<br>I love you forever & always, <span id="yes-name">Ammu</span> ❤️</p>
+    <br>
+    <button class="btn" onclick="restart()">Replay from the start 🔁</button>
+  </div>
+</section>
+
+<script>
+  let currentScreen = 1;
+  let userName = 'Ammu';
+  const audio = document.getElementById('bgmusic');
+
+  // ── Generate floating hearts ──
+  const particleContainer = document.getElementById('particles');
+  const symbols = ['❤','💖','💕','🌹','✨','💗','🌸'];
+  for (let i = 0; i < 20; i++) {
+    const p = document.createElement('div');
+    p.classList.add('heart-particle');
+    p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.fontSize = (0.8 + Math.random() * 1.4) + 'rem';
+    p.style.animationDuration = (8 + Math.random() * 14) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    particleContainer.appendChild(p);
+  }
+
+  // ── Live name update ──
+  document.getElementById('nameInput').addEventListener('input', function() {
+    const val = this.value.trim() || 'DEVA';
+    userName = val;
+    document.getElementById('greeting-name').textContent = val;
+  });
+
+  function updateNameInContent() {
+    document.getElementById('letter-name').textContent = userName;
+    document.getElementById('prop-name').textContent = 'My ' + userName + '...';
+    document.getElementById('yes-name').textContent = userName;
+  }
+
+  function navigate(dir) {
+    const next = currentScreen + dir;
+    if (next >= 1 && next <= 5) goToScreen(next);
+  }
+
+  function updateNavArrows(n) {
+    document.getElementById('prevBtn').classList.toggle('hidden', n === 1);
+    document.getElementById('nextBtn').classList.toggle('hidden', n === 5);
+    const labels = ['Welcome','Our Moments','Our Song','Love Letter','The Question'];
+    document.getElementById('pageLabel').textContent = labels[n-1] + ' · ' + n + '/5';
+  }
+
+  function goToScreen(n) {
+    updateNameInContent();
+
+    // hide current
+    document.getElementById('s' + currentScreen).classList.remove('active');
+    // show new
+    document.getElementById('s' + n).classList.add('active');
+
+    // update dots
+    document.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === n - 1);
+    });
+
+    // update nav arrows
+    updateNavArrows(n);
+
+    // music logic
+    if (n === 3) {
+      if (audio.src && audio.src !== window.location.href && !audio.src.includes('C:\Users\ASARDEEN\OneDrive\Desktop\Apsar webtech\deva\au')) {
+        audio.play().catch(() => {});
+      }
+    }
+
+    currentScreen = n;
+
+    // scroll letter screen to top
+    if (n === 4) document.getElementById('s4').scrollTop = 0;
+  }
+
+  // ── No button flees OPPOSITE to tap/click direction ──
+  let noClicks = 0;
+  const noBtn = document.getElementById('noBtn');
+
+  function runAway(e) {
+    noClicks++;
+
+    // Get pointer coords (mouse or touch)
+    let px, py;
+    if (e.touches && e.touches[0]) {
+      px = e.touches[0].clientX;
+      py = e.touches[0].clientY;
+    } else {
+      px = e.clientX;
+      py = e.clientY;
+    }
+
+    const vw  = window.innerWidth;
+    const vh  = window.innerHeight;
+    const bw  = noBtn.offsetWidth  || 140;
+    const bh  = noBtn.offsetHeight || 48;
+
+    // Current button centre
+    const rect = noBtn.getBoundingClientRect();
+    const bcx  = rect.left + rect.width  / 2;
+    const bcy  = rect.top  + rect.height / 2;
+
+    // Direction vector: from pointer toward button centre
+    // Moving the button further along that vector = opposite to finger
+    const dx   = bcx - px;
+    const dy   = bcy - py;
+    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+    const jump = 200 + Math.random() * 100;
+
+    let nx = bcx + (dx / dist) * jump - bw / 2;
+    let ny = bcy + (dy / dist) * jump - bh / 2;
+
+    // Clamp inside viewport (leave room for nav bar at bottom)
+    nx = Math.max(8, Math.min(vw - bw - 8, nx));
+    ny = Math.max(8, Math.min(vh - bh - 90, ny));
+
+    noBtn.style.position   = 'fixed';
+    noBtn.style.transition = 'left 0.22s cubic-bezier(.2,1.5,.4,1), top 0.22s cubic-bezier(.2,1.5,.4,1)';
+    noBtn.style.left       = nx + 'px';
+    noBtn.style.top        = ny + 'px';
+    noBtn.style.zIndex     = '999';
+
+    // After 5 attempts: shrink & fade out — she has no choice but YES!
+    if (noClicks >= 5) {
+      noBtn.style.transform     = 'scale(0.35)';
+      noBtn.style.opacity       = '0.15';
+      noBtn.style.pointerEvents = 'none';
+    }
+  }
+
+  noBtn.addEventListener('click',      runAway);
+  noBtn.addEventListener('touchstart', runAway, { passive: true });
+
+  function sayYes() {
+    document.getElementById('proposal-main').style.display = 'none';
+    const msg = document.getElementById('yesMsg');
+    msg.style.display = 'flex';
+    // Extra burst of hearts
+    for (let i = 0; i < 15; i++) {
+      const p = document.createElement('div');
+      p.classList.add('heart-particle');
+      p.textContent = '❤';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.fontSize = (1.5 + Math.random() * 2) + 'rem';
+      p.style.animationDuration = (3 + Math.random() * 5) + 's';
+      p.style.animationDelay = '0s';
+      particleContainer.appendChild(p);
+    }
+  }
+
+  function restart() {
+    noClicks = 0;
+    noBtn.style.position   = '';
+    noBtn.style.left       = '';
+    noBtn.style.top        = '';
+    noBtn.style.opacity    = '';
+    noBtn.style.transform  = '';
+    noBtn.style.transition = '';
+    noBtn.style.pointerEvents = '';
+    document.getElementById('proposal-main').style.display = '';
+    document.getElementById('yesMsg').style.display = 'none';
+    document.getElementById('nameInput').value = '';
+    userName = 'Ammu';
+    document.getElementById('greeting-name').textContent = 'Ammu';
+    goToScreen(1);
+  }
+</script>
+</body>
+</html>
